@@ -24,15 +24,15 @@ ol, ul {
   background: silver;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
   line-height: 34px;
-  height: 72px;
+  height: 98px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 72px;
+  width: 98px;
 }
 
 .square:focus {
@@ -54,6 +54,8 @@ ol, ul {
 }
 
 .game-info {
+  font-size: 1vw;
+  margin-top: 5%;
   color: white;
   margin-left: 20px;
 }
