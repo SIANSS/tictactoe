@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -9,8 +10,42 @@ function Square(props) {
     </button>
   );
 }
+// this is for form submission
+class Form extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {value : ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event){
+    this.setState({value : event.target.value});
+  }
+
+  handleSubmit(event){
+    alert('A name was submitted' + this.state.value);
+    var datus = this.state.value;
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    )
+  }
+
+}
 
 class Board extends React.Component {
+
   renderSquare(i) {
     return (
       <Square
@@ -64,7 +99,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? "*" : "#";
+    squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       history: history.concat([
         {
@@ -108,6 +143,7 @@ class Game extends React.Component {
 
     return (
       <div className="game">
+        <Form />
         <div className="game-board">
           <Board
             squares={current.squares}
