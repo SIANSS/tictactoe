@@ -9,7 +9,9 @@ body {
 ol, ul {
   padding-left: 30px;
 }
-
+h1{
+  text-align: center;
+}
 .board-row:after {
   clear: both;
   content: "";
@@ -33,6 +35,11 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: 98px;
+}
+
+#olided{
+  margin-top: 1%;
+  color:black;
 }
 
 .square:focus {
